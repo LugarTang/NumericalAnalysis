@@ -18,7 +18,7 @@ $$
 
 上的近似值 $y_0, y_1, y_2, \cdots, y_n$。相邻两个节点的间距 $h_k = x_k - x_{k-1} (k = 1, 2, \cdots, n)$ 称为步长。常用等步长 $h = \frac{b - a}{n}$， 这时节点为 $x_k = a + kh (k = 0, 1, \cdots, n)$
 
-注：准确值为 $y(x)$，$y_k$ 为 $y(x_k)$ 的近似值，记 $f(x_k, y_k) = f_k$
+注：准确值为 $y(x)$, $y_k$ 为 $y(x_k)$ 的近似值，记 $f(x_k, y_k) = f_k$
 
 # Euler Method
 
@@ -38,7 +38,7 @@ $$
 y_{n+1}^{(k+1)} = y_n + h f(x_{n+1}, y_{n+1}^{(k)}), \quad k = 0, 1, \cdots
 $$
 
-由于 $f(x, y)$ 对 $y$ 满足李普希兹条件 $|f(x, y_1) - f(x, y_2)| \le L |y_1 - y_2|$，将上述减去$y_{k+1} = y_k + h f_{k+1}$得
+由于 $f(x, y)$ 对 $y$ 满足李普希兹条件 $|f(x, y_1) - f(x, y_2)| \le L |y_1 - y_2|$，将上述减去 $y_{k+1} = y_k + h f_{k+1}$ 得
 
 $$
 \left| y_{n+1}^{(k+1)} - y_{n+1} \right| = h \left| f(x_{n+1}, y_{n+1}^{(k)}) - f(x_{n+1}, y_{n+1}) \right| \le hL \left| y_{n+1}^{(k)} - y_{n+1} \right|
@@ -69,9 +69,11 @@ $$
 ## Improved Euler Method
 
 $$
-\text{Guess: }\tilde y_{n+1} = y_n + hf(x_n,y_n)\\
+\begin{aligned}
+&\text{Guess: }\tilde y_{n+1} = y_n + hf(x_n,y_n)\\
 \ \\
-\text{Correct: }y_{n+1} = y_n + \frac{h}{2}(f(x_n,y_n) + f(x_{n+1},\tilde y_{n+1}))
+&\text{Correct: }y_{n+1} = y_n + \frac{h}{2}(f(x_n,y_n) + f(x_{n+1},\tilde y_{n+1}))\\
+\end{aligned}
 $$
 
 而这样建立的预测-校正系统通常称为改进的欧拉公式
@@ -90,7 +92,7 @@ Actually $\phi$ represents a way to approximate the 1-order derivative in this i
 
 # Error
 
-假设$x_n$处的$y_n$没有误差，即$y(x_n)=y_n$，考虑从$x_n$到$x_{n+1}$这一步的误差，这就是**局部误差**的概念
+假设 $x_n$ 处的 $y_n$ 没有误差，即 $y(x_n)=y_n$ ，考虑从 $x_n$ 到 $x_{n+1}$ 这一步的误差，这就是**局部误差**的概念
 
 $$
 \begin{aligned}
@@ -103,7 +105,7 @@ $$
 if
 
 $$
-T_{n+1}=\Omicron(h^{p+1}),p\in\Z.
+T_{n+1}=O(h^{p+1}),p\in\mathbb Z.
 $$
 
 then the method is of order $p$.
@@ -111,7 +113,7 @@ then the method is of order $p$.
 Furthermore if
 
 $$
-T_{n+1}=g(x_n,y(x_n))h^{p+1} +\Omicron(h^{p+2}),p\in\Z.
+T_{n+1}=g(x_n,y(x_n))h^{p+1} +O(h^{p+2}),p\in\mathbb Z.
 $$
 
 Then $g\cdot h^{p+1}$ is called the **main term** of the local error.
