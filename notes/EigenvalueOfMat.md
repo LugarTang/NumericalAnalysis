@@ -5,7 +5,6 @@
 **定义** 设 $A = (a_{i,j})_{n \times n}$，令
 
 1. $r_i = \sum_{j=1, j \ne i}^{n} |a_{i,j}| (i = 1, 2, \ldots, n)$；
-
 2. 集合 $D_i = \{ z \mid |z - a_{ii}| \le r_i, z \in \mathbb{C} \}$。称复平面上以 $a_{i,i}$ 为圆心，以 $r_i$ 为半径的所有圆盘为 $A$ 的格什戈林 (gershgorin) 圆盘
 
 **(盖尔圆盘定理)** 设 $A = (a_{ij})_{n \times n}$，则 $A$ 的每一个特征值必属于下述某一个圆盘之中：
@@ -71,13 +70,13 @@ The speed of convergence is mainly determined by $|\lambda_2/\lambda_1|$.
 
 To make this value smaller, we can introduce $B=A-\lambda I$. They have same eigenvector and eigenvalue only differ by $p$.
 
-As long as you ensure that 
+As long as you ensure that
 
 - $\lambda_1-p$ is still the main eigenvalue of $B$;
 
 Further the second main eigenvalue has 2 candidates: $\lambda_2-p$ and $\lambda_n-p$.
 
-So 
+So
 
 $$
 r'=\min_p\frac{\max\{|\lambda_2-p|,|\lambda_n-p|\}}{|\lambda_1-p|}.
@@ -115,7 +114,6 @@ You can verify that after 1 rotation, the **sum of squares of non-diagonal eleme
 
 Do this to eliminate the absolutely biggest non-diagonal element.
 
-
 Advantage
 
 精度一般都比较高，特别是求得的特征向量正交性很好。
@@ -123,7 +121,6 @@ Advantage
 Disadvantage
 
 - 计算量大
-
 - 若原矩阵是稀疏矩阵，旋转变换后不能保持其稀疏的性质。
 
 # QR Method Test?
@@ -135,13 +132,14 @@ On complex matrix we can achieve a more satisfactory result: $A$ is strictly upp
 ![1717949334735](image/numerical_eigenvalue_mat/1717949334735.png)
 
 ## Mirror Matrix
+
 Also called Householder matrix.
 
 **Definition**
 
 *Supposition*
 
-1. $\vec w\in\R^n,||\vec w||_2=1$.
+1. $\vec w\in\mathbb R^n,||\vec w||_2=1$.
 
 *Definition*
 
@@ -165,16 +163,15 @@ $||\vec x||_2=||H\vec x||_2.$
 
 You can always find an $H$ to map a vector to a certain direction, say $(\pm1,0,0,...,0)$. Here we choose direction(sign of $x_1$) to maxify the length of $\vec w$ to improve the stability of the calculation.
 
-
 **Lemma**
 
 $$
-\forall A\in\R^{n\times n}, \exists Q(Q^HQ=I), s.t.\ Q^HAQ\text{ is a Hessberg matrix}.
+\forall A\in\mathbb R^{n\times n}, \exists Q(Q^HQ=I), s.t.\ Q^HAQ\text{ is a Hessberg matrix}.
 $$
 
 *Proof*
 
-Construct $n-1$ order mirror matrix $H$. 
+Construct $n-1$ order mirror matrix $H$.
 
 Let $P=\text{diag}(1, H)$.
 
